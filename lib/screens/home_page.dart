@@ -1,4 +1,5 @@
 import 'package:eatrispedal/theme/colors.dart';
+import 'package:eatrispedal/widgets/CarouselSlider.dart';
 import 'package:eatrispedal/widgets/appBar.dart';
 import 'package:eatrispedal/widgets/buttomNav.dart';
 import 'package:eatrispedal/widgets/foodCards.dart';
@@ -119,6 +120,14 @@ class Home extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20,),
+            Text(
+                  'Featured 🔥',
+                  style: TextStyle(fontWeight: FontWeight.w500),
+                ),
+            SizedBox(height: 15,),
+          
+             MyCarousel(),
+            const SizedBox(height: 20,),
             const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -143,7 +152,7 @@ class Home extends StatelessWidget {
                   ],
                 ),
             SizedBox(height: 15,),
-                              Row(
+              Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     FoodCard(
@@ -158,8 +167,11 @@ class Home extends StatelessWidget {
                     ),
                   ],
                 ),
+              
+
               ],
             ),
+            
           ],
         ),
       ),

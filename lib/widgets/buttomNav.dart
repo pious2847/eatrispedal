@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:eatrispedal/theme/colors.dart';
-
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 class BottomNavigator extends StatefulWidget {
   const BottomNavigator({super.key});
@@ -10,95 +10,46 @@ class BottomNavigator extends StatefulWidget {
 }
 
 class _BottomNavigatorState extends State<BottomNavigator> {
-  var _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return BottomAppBar(
-      color: Colors.white,
-      child: SizedBox(
-        height: 56,
-        width: MediaQuery.of(context).size.width,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 25.0, right: 25.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              IconBottomBar(
-                  text: "Home",
-                  icon: Icons.home,
-                  selected: _selectedIndex == 0,
-                  onPressed: () {
-                    setState(() {
-                      _selectedIndex = 0;
-                    });
-                  }),
-              IconBottomBar(
-                  text: "Restaurants",
-                  icon: Icons.restaurant,
-                  selected: _selectedIndex == 1,
-                  onPressed: () {
-                    setState(() {
-                      _selectedIndex = 1;
-                    });
-                  }),
-              IconBottomBar(
-                  text: "Map",
-                  icon: Icons.map,
-                  selected: _selectedIndex == 2,
-                  onPressed: () {
-                    setState(() {
-                      _selectedIndex = 2;
-                    });
-                  }),
-              IconBottomBar(
-                  text: "Profile",
-                  icon: Icons.person,
-                  selected: _selectedIndex == 3,
-                  onPressed: () {
-                    setState(() {
-                      _selectedIndex = 3;
-                    });
-                  })
-            ],
-          ),
+    return Container(
+        color: secondarytextcolor,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GNav(
+          rippleColor: primcolorlight, // tab button ripple color when pressed
+          hoverColor: primcolorlight, // tab button hover color
+          haptic: true, // haptic feedback
+          tabBorderRadius: 15, 
+          backgroundColor: secondarytextcolor,
+          tabActiveBorder: Border.all(color: primcolorlight, width: 1), // tab button border
+          duration: const Duration(milliseconds: 900), // tab animation duration
+          gap: 8, // the tab button gap between icon and text 
+          color: cardgrey, // unselected icon color
+          activeColor: primcolor, // selected icon and text color
+          iconSize: 24, // tab button icon size
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5), // navigation bar padding
+          tabs: const [
+        GButton(
+          icon: Icons.home,
+          text: 'Home',
+        ),
+        GButton(
+          icon: Icons.search,
+          text: 'Search',
+        ),
+        GButton(
+          icon: Icons.shopping_cart_outlined,
+          text: 'Cart',
+        ),
+        GButton(
+          icon: Icons.supervised_user_circle_outlined,
+          text: 'Profile',
+        )
+          ]
         ),
       ),
-    );
-  }
-}
-
-class IconBottomBar extends StatelessWidget {
-  IconBottomBar(
-      {Key? key,
-      required this.text,
-      required this.icon,
-      required this.selected,
-      required this.onPressed})
-      : super(key: key);
-  final String text;
-  final IconData icon;
-  final bool selected;
-  final Function() onPressed;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        IconButton(
-          onPressed: onPressed,
-          icon: Icon(
-            icon,
-            color: selected ?  primcolorlight : Colors.grey,
-          ),
-        ),
-        Text(
-          text,
-          style: TextStyle(
-              fontSize: 14,
-              height: .1,
-              color: selected ? primcolorlight : Colors.grey),
-        )
-      ],
     );
   }
 }

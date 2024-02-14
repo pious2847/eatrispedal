@@ -8,3 +8,4 @@ const secondarybtncolor = Colors.white;
 const primtextcolor = Colors.amber;
 const primtextcolordeep = Color.fromARGB(255, 95, 72, 3);
 const secondarytextcolor = Colors.white;
+const cardgrey = Color.fromARGB(255, 185, 185, 185);
