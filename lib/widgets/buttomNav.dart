@@ -10,7 +10,7 @@ class BottomNavigator extends StatefulWidget {
 }
 
 class _BottomNavigatorState extends State<BottomNavigator> {
-
+  int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -47,7 +47,13 @@ class _BottomNavigatorState extends State<BottomNavigator> {
           icon: Icons.supervised_user_circle_outlined,
           text: 'Profile',
         )
-          ]
+          ],
+          selectedIndex: _selectedIndex,
+          onTabChange: (index){
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
         ),
       ),
     );

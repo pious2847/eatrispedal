@@ -12,6 +12,9 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
+      drawer: Drawer(
+        child: Text("Yoo")
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -45,20 +48,20 @@ class Home extends StatelessWidget {
             const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _AddCard(
+                AddCard(
                   image: 'assets/images/all.png',
                   lable: 'All',
                   isActive: true,
                 ),
-                _AddCard(
+                AddCard(
                   image: 'assets/images/hamburger.png',
                   lable: 'Hambuger',
                 ),
-                _AddCard(
+                AddCard(
                   image: 'assets/images/pizza.png',
                   lable: 'Pizza',
                 ),
-                _AddCard(
+                AddCard(
                   image: 'assets/images/tacos.png',
                   lable: 'Tacos',
                 ),
@@ -176,66 +179,6 @@ class Home extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: const BottomNavigator(),
-    );
-  }
-}
-
-class _AddCard extends StatelessWidget {
-  final String image;
-  final String lable;
-  final bool isActive;
-
-  const _AddCard(
-      {Key? key, this.image = '', this.lable = '', this.isActive = false})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        if (isActive == true) ...[
-          Container(
-            height: 60,
-            width: 60,
-            decoration: const BoxDecoration(
-                color: primcolor,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(15),
-                )),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Image(
-                image: AssetImage(image),
-                height: 60,
-                width: 40,
-              ),
-            ),
-          ),
-        ] else ...[
-          Container(
-            decoration: const BoxDecoration(
-                color: secondarybgcolor,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(15),
-                )),
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Image(
-                image: AssetImage(
-                  image,
-                ),
-                height: 40,
-                width: 40,
-              ),
-            ),
-          ),
-        ],
-        Text(
-          lable,
-          style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 12.0),
-        )
-      ],
     );
   }
 }

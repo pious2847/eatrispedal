@@ -97,6 +97,7 @@ class _CarouselFoodCardState extends State<CarouselFoodCard> {
         padding: const EdgeInsets.all(10.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image(
               image: AssetImage(widget.image),
@@ -107,7 +108,9 @@ class _CarouselFoodCardState extends State<CarouselFoodCard> {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  SizedBox(height: 5,),
                   Text(
                     widget.title,
                     style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
@@ -122,20 +125,27 @@ class _CarouselFoodCardState extends State<CarouselFoodCard> {
                     ),
                   ),
                   SizedBox(height: 10),
-                  Container(
-                      decoration: BoxDecoration(
-                          color: primcolorlight,
-                          borderRadius: BorderRadius.circular(50),),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.shopping_cart,
-                          size: 15,
-                          color: secondarytextcolor,
-                        ),
-                        color: primtextcolor,
-                        padding: EdgeInsets.all(5.0),
-                      ))
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Container(
+                          decoration: BoxDecoration(
+                              color: primcolorlight,
+                              borderRadius: BorderRadius.circular(50),),
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.shopping_cart,
+                              size: 15,
+                              color: secondarytextcolor,
+                            ),
+                            color: primtextcolor,
+                            padding: EdgeInsets.all(5.0),
+                          )),
+                    ],
+                  )
+                
                 ],
               ),
             ),
@@ -145,3 +155,65 @@ class _CarouselFoodCardState extends State<CarouselFoodCard> {
     );
   }
 }
+
+
+class AddCard extends StatelessWidget {
+  final String image;
+  final String lable;
+  final bool isActive;
+
+  const AddCard(
+      {Key? key, this.image = '', this.lable = '', this.isActive = false})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        if (isActive == true) ...[
+          Container(
+            height: 60,
+            width: 60,
+            decoration: const BoxDecoration(
+                color: primcolor,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(15),
+                )),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Image(
+                image: AssetImage(image),
+                height: 60,
+                width: 40,
+              ),
+            ),
+          ),
+        ] else ...[
+          Container(
+            decoration: const BoxDecoration(
+                color: secondarybgcolor,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(15),
+                )),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Image(
+                image: AssetImage(
+                  image,
+                ),
+                height: 40,
+                width: 40,
+              ),
+            ),
+          ),
+        ],
+        Text(
+          lable,
+          style: const TextStyle(fontWeight: FontWeight.w300, fontSize: 12.0),
+        )
+      ],
+    );
+  }
+}
+

@@ -1,6 +1,7 @@
 import 'package:eatrispedal/theme/colors.dart';
 import 'package:eatrispedal/widgets/appBar.dart';
 import 'package:eatrispedal/widgets/buttomNav.dart';
+import 'package:eatrispedal/widgets/foodCards.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
@@ -22,7 +23,7 @@ class DetailPage extends StatelessWidget {
                 width: 250,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.45,
+                height: MediaQuery.of(context).size.height * 0.56,
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
                     color: secondarybgcolor,
@@ -61,7 +62,7 @@ class DetailPage extends StatelessWidget {
                               ),
                             ),
                             const Text(
-                              'Tk 145',
+                              'Ghc 145',
                               style: TextStyle(
                                   color: primtextcolor,
                                   fontWeight: FontWeight.w500,
@@ -119,6 +120,31 @@ class DetailPage extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
+                        Text('Add Ons', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),),
+                        SizedBox(height: 15,),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            AddCard(
+                              image: 'assets/images/all.png',
+                              lable: 'All',
+                              isActive: true,
+                            ),
+                            AddCard(
+                              image: 'assets/images/hamburger.png',
+                              lable: 'Hambuger',
+                            ),
+                            AddCard(
+                              image: 'assets/images/pizza.png',
+                              lable: 'Pizza',
+                            ),
+                            AddCard(
+                              image: 'assets/images/tacos.png',
+                              lable: 'Tacos',
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 10,),
                         SizedBox(
                           width: MediaQuery.of(context).size.width *
                               0.8, // Set the width of the container
@@ -145,14 +171,13 @@ class DetailPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                       ],
+                      ],
                     ),
                   ),
                 ),
               )
             ]),
       ),
-      bottomNavigationBar: const BottomNavigator(),
     );
   }
 }
