@@ -12,9 +12,6 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CustomAppBar(),
-      drawer: Drawer(
-        child: Text("Yoo")
-      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(10),
         child: Column(

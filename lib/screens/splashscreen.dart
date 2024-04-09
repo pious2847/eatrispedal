@@ -13,14 +13,24 @@ class SplashScreen extends StatelessWidget {
       body: Container(
         width: MediaQuery.of(context).size.width,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Image(
-              image: AssetImage('assets/images/hamburger.png'),
-              height: 300,
-              width: 300,
+            Container(
+              height: MediaQuery.of(context).size.height * 0.6,
+              width: MediaQuery.of(context).size.width ,
+              decoration: BoxDecoration(
+                color: secondarybgcolor,
+                borderRadius: BorderRadius.only(bottomRight: Radius.circular(150)),
+               
+              ),
+              child: const Image(
+                image: AssetImage('assets/images/hamburger.png'),
+                height: 300,
+                width: 300,
+              )
+              
             ),
+            SizedBox(height: 40),
             const Column(
               children: [
                 Text(
@@ -42,6 +52,8 @@ class SplashScreen extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 40),
+
             TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
@@ -57,12 +69,12 @@ class SplashScreen extends StatelessWidget {
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                   RoundedRectangleBorder(
                     borderRadius:
-                        BorderRadius.circular(20.0), // Set border radius
+                        BorderRadius.circular(10.0), // Set border radius
                   ),
                 ),
               ),
               child: const Padding(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 20, right: 20, bottom: 10, top: 10),
                 child: Text(
                   'Get Started',
                 ),

@@ -9,3 +9,5 @@ const primtextcolor = Colors.amber;
 const primtextcolordeep = Color.fromARGB(255, 95, 72, 3);
 const secondarytextcolor = Colors.white;
 const cardgrey = Color.fromARGB(255, 185, 185, 185);
+const bordercolor = Color.fromARGB(255, 255, 71, 71);
+const papaypalicon = Color.fromARGB(255, 71, 99, 255);

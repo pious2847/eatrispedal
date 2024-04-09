@@ -1,3 +1,4 @@
+import 'package:eatrispedal/screens/cart.dart';
 import 'package:eatrispedal/theme/colors.dart';
 import 'package:eatrispedal/widgets/appBar.dart';
 import 'package:eatrispedal/widgets/buttomNav.dart';
@@ -23,7 +24,7 @@ class DetailPage extends StatelessWidget {
                 width: 250,
               ),
               Container(
-                height: MediaQuery.of(context).size.height * 0.56,
+                height: MediaQuery.of(context).size.height * 0.57,
                 width: MediaQuery.of(context).size.width,
                 decoration: const BoxDecoration(
                     color: secondarybgcolor,
@@ -73,7 +74,7 @@ class DetailPage extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        const Row(
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
@@ -83,11 +84,13 @@ class DetailPage extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                Icon(
-                                  Icons.add_circle_outline_outlined,
-                                  color: primcolorlight,
-                                  size: 15,
-                                ),
+                                IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.add_circle_outline_outlined,
+                                      color: primcolorlight,
+                                      size: 15,
+                                    )),
                                 SizedBox(
                                   width: 7,
                                 ),
@@ -98,13 +101,15 @@ class DetailPage extends StatelessWidget {
                                 SizedBox(
                                   width: 7,
                                 ),
-                                Icon(
-                                  Icons.remove_circle_outline_outlined,
-                                  color: primcolorlight,
-                                  size: 15,
-                                ),
+                                IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.remove_circle_outline_outlined,
+                                      color: primcolorlight,
+                                      size: 15,
+                                    )),
                               ],
-                            )
+                            ),
                           ],
                         ),
                         const SizedBox(
@@ -120,8 +125,14 @@ class DetailPage extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        Text('Add Ons', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 15),),
-                        SizedBox(height: 15,),
+                        Text(
+                          'Add Ons',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 15),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
                         const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -144,32 +155,80 @@ class DetailPage extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 10,),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width *
-                              0.8, // Set the width of the container
-                          child: ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.all<Color>(primcolor),
+                          height: 15,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width *
+                                  0.4, // Set the width of the container
+
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          primcolor),
+                                  elevation: MaterialStateProperty.all(5)
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Cart(),
+                                    ),
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.paypal_rounded,
+                                        color: papaypalicon),
+                                    SizedBox(
+                                        width:
+                                            5), // Add some space between the icon and text
+                                    Text('purchase',
+                                        style: TextStyle(
+                                            color: secondarytextcolor)),
+                                  ],
+                                ),
+                              ),
                             ),
-                            onPressed: () {
-                              // Add your button logic here
-                            },
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(Icons.shopping_cart,
-                                    color: secondarytextcolor),
-                                SizedBox(
-                                    width:
-                                        5), // Add some space between the icon and text
-                                Text('Add to Cart',
-                                    style:
-                                        TextStyle(color: secondarytextcolor)),
-                              ],
+                            SizedBox(
+                              width: MediaQuery.of(context).size.width *
+                                  0.4, // Set the width of the container
+                              child: ElevatedButton(
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.all<Color>(
+                                          primcolor),
+                                          elevation: MaterialStateProperty.all(5)
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const Cart(),
+                                    ),
+                                  );
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.shopping_cart,
+                                        color: secondarytextcolor),
+                                    SizedBox(
+                                        width:
+                                            5), // Add some space between the icon and text
+                                    Text('Add Cart',
+                                        style: TextStyle(
+                                            color: secondarytextcolor)),
+                                  ],
+                                ),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
                       ],
                     ),

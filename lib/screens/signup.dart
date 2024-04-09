@@ -1,16 +1,16 @@
-import 'package:eatrispedal/screens/signup.dart';
+import 'package:eatrispedal/screens/login.dart';
 import 'package:flutter/material.dart';
 import 'package:eatrispedal/theme/colors.dart';
 import 'package:eatrispedal/screens/home_page.dart';
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
+class _SignUpState extends State<SignUp> {
   bool _isObscured = true;
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class _LoginState extends State<Login> {
                             color: secondarytextcolor),
                       ),
                       Text(
-                        'Login',
+                        'Sign-Up',
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
                             fontSize: 19,
@@ -67,6 +67,28 @@ class _LoginState extends State<Login> {
                       SizedBox(
                         height: 20,
                       ),
+                       TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Username',
+                          hintStyle: TextStyle(color: Colors.grey),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(color: secondarybgcolor),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(color: Colors.blue),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(color: Colors.red),
+                          ),
+                          filled: false,
+                          prefixIcon:
+                              Icon(Icons.person, color: secondarybgcolor),
+                        ),
+                      ),
+                      SizedBox(height: 20),
                       TextField(
                         decoration: InputDecoration(
                           hintText: 'Email',
@@ -123,7 +145,6 @@ class _LoginState extends State<Login> {
                         ),
                         obscureText: _isObscured,
                       ),
-                      
                       SizedBox(height: 20),
                       SizedBox(
                         width: MediaQuery.of(context).size.width,
@@ -153,7 +174,7 @@ class _LoginState extends State<Login> {
                             ),
                           ),
                           child: Text(
-                            'Login',
+                            'SignUp',
                             style: TextStyle(
                               fontSize: 16.0,
                               fontWeight: FontWeight.bold,
@@ -162,69 +183,29 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                      SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Container(
                           child: Column(
                             children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  TextButton(
-                                    onPressed: () {
-                                      // Navigate to password reset page
-                                    },
-                                    child: Text(
-                                      'Forgot Password?',
-                                      style: TextStyle(color: Colors.white),
-                                    ),
-                                  ),
-                                  Row(
-                                    children: [
-                                      Checkbox(
-                                        value: true,
-                                        onChanged: (value) {
-                                          // Implement logic to handle checkbox state changes
-                                        },
-                                        fillColor:
-                                            MaterialStateProperty.resolveWith(
-                                                (states) {
-                                          if (states.contains(
-                                              MaterialState.selected)) {
-                                            return Colors.blue; // Checked color
-                                          }
-                                          return Colors
-                                              .white; // Unchecked color
-                                        }),
-                                      ),
-                                      Text(
-                                        'Remember me',
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
                               SizedBox(height: 20),
                               Row(
                                 children: [
                                   Text(
-                                    "Don't have an account?",
+                                    "Already have an account?",
                                     style: TextStyle(color: Colors.white),
                                   ),
                                   TextButton(
                                     onPressed: () {
-                                        Navigator.pushReplacement(
+                                       Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const SignUp(),
+                                builder: (context) => const Login(),
                               ),
                             );
                                     },
                                     child: Text(
-                                      'Signup',
+                                      'Login',
                                       style:
                                           TextStyle(color: secondarytextcolor),
                                     ),
